@@ -1,0 +1,39 @@
+.searchbox{
+    min-height: 200px;
+    background-image: linear-gradient(
+        to left bottom, 
+        rgba(0, 118, 182, 0.274), 
+        rgba(0, 180, 216, 0.288)), url(https://res.cloudinary.com/benjee/image/upload/v1589724348/couple-love-sitting-evening-4009409_e2aivw.jpg);
+    background-position: center;
+    background-size: cover;
+    color: #fefefe;
+    padding: 20px 30px;
+    font-size: 30px;
+}
+h1{
+    line-height: 1;
+}
+.header-sub{
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+}
+.searchbox input[type="text"]{
+    padding: 15px 20px;
+    background: #fefefe;
+    color: #333;
+    width: 70%;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+.btn{
+    background: #fefefe;
+    border: none;
+    outline: none;
+    transform: translate(-40px, 3px);
+    cursor: pointer;
+}
+.btn-icon{
+    font-size: 18px;
+}

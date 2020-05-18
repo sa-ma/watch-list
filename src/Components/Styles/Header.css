@@ -1,0 +1,44 @@
+.headerbox{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #00B4D8; */
+    background-color: rgb(202, 240, 248);    
+    color: #000;
+    font-weight: 600;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 9999999;
+}
+
+.logo{
+    padding-left: 10px;
+}
+.logo{
+    font-family: 'Pacifico', cursive;
+    font-size: 18px;
+}
+.nav{
+    display: flex;
+    padding: 5px;
+}
+.nav li{
+    cursor: pointer;
+    padding: 0 10px;
+    list-style-type: none;
+}
+.popular, .free, .trending{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 10px;
+}
+.popular{
+    background-color: #fafafa;
+}
+.free{
+    background-color: rgba(202, 240, 248, 0.452);
+}
