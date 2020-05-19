@@ -16,7 +16,6 @@ const UseData = (url) => {
             }catch(error){
                 setLoading(false);
                 setError("Error Fetching Data");
-                // console.log(error);
             }
         }
         fetchItems();        
