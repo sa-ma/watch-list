@@ -1,12 +1,12 @@
 import React from 'react';
 import './Styles/moviedetails.css';
-import UseData from '../Components/Hooks/UseData';
+import FetchMovies from './Hooks/FetchMovies';
 
 function Moviedetails ({match}){
-    const {loading, items, error} = UseData("https://api.themoviedb.org/3/discover/movie?api_key=07a87afa9594ed4d43e740c14f0f5651&language=en-US&include_adult=false&include_video=false");
     let checkparams = match.params.name;
+    const {loading, items, error} = FetchMovies(`https://api.themoviedb.org/3/movie/${checkparams}?api_key=07a87afa9594ed4d43e740c14f0f5651`);
     
-
+    let item = items;
     console.log(items)
     if(loading){
         return (
@@ -24,12 +24,8 @@ function Moviedetails ({match}){
             </div>    
         );
     }
-    else {
-        return(
-            items.map(item =>{
-                if(checkparams === item.title){
                         const style1 ={
-                            backgroundImage: `linear-gradient(to left bottom, rgba(44, 51, 53, 0.452),rgba(55, 74, 78, 0.452)),url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${item.backdrop_path})`,
+                            backgroundImage: `linear-gradient(to left bottom, rgba(40, 40, 40, 0.78), rgba(0, 0, 0, 0.93)),url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${item.backdrop_path})`,
                         }
                     return (
                        <div className="overview-box" key={item.id} style={style1}>
@@ -38,7 +34,7 @@ function Moviedetails ({match}){
                             </div>
                             <div className="overview-details">
                                 <div className="overview-header">
-                                    <h1>{item.title}</h1>
+                                    <h1>{item.name}</h1>
                                     <p>Release date: {item.release_date}</p>
                                     <p>Rating: {item.vote_average}</p>
                                     <a href={`https://www.youtube.com/results?search_query=${item.title} trailer`} target="_blank" rel="noopener noreferrer">Trailer</a>
@@ -50,11 +46,7 @@ function Moviedetails ({match}){
                                 
                             </div>
                        </div>
-                   );
-                }  
-            })   
-        );
-
-    }    
+                   );  
+                 
 }
 export default Moviedetails;

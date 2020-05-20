@@ -6,6 +6,8 @@ function TrendingSeries (){
 
     const {loading, items, error} = UseData("https://api.themoviedb.org/3/trending/tv/day?api_key=07a87afa9594ed4d43e740c14f0f5651");
 
+    console.log(items)
+
     if(loading){
         return (
             <div className="popular">
@@ -31,7 +33,7 @@ function TrendingSeries (){
                         items.map(item =>{
                         return(
                             <div className="card" key={item.id}>
-                            <Link to={`/overview/${item.title}`}>
+                            <Link to={`/series/${item.id}`}>
                                 <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
                                 <p className="movie-name">{item.name}</p>
                                 <p className="rate">{item.vote_average}</p>
