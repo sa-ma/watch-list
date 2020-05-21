@@ -1,7 +1,10 @@
 import React from 'react';
 import './Styles/Card.css';
+import './Styles/Header.css';
 import UseData from './Hooks/UseData';
 import { Link } from 'react-router-dom';
+import LoadingContent from './Loading';
+import ErrorLoading from './ErrorLoading';
 
 
 function Popular (){
@@ -9,42 +12,31 @@ function Popular (){
     console.log(items)
 
     if(loading){
-        return (
-            <div className="popular">
-                <h2>Popular</h2>
-                <h3>Loading Content</h3>
-            </div>    
-        );
+        return <LoadingContent />
     }
     else if(error){
-        return (
-            <div className="popular">
-                <h2>Popular</h2>
-                <h3>Couldn't get Content</h3>
-            </div>    
-        );
+        return <ErrorLoading />
     }
     else {
         return(
-                <div className="cardbox">
-                    {
-                        items.map(item =>{
-                        return(
-                               
-                                <div className="card" key={item.id}>
-                                <Link to={`/series/${item.id}`}>
-                                    <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
-                                    
-                                        <p className="movie-name">{item.name}</p>
-                                    
-                                    <p className="movie-date">{item.release_date}</p>
-                                    <p className="rate">{item.vote_average}</p>
-                                </Link>
-                                </div>
-                        )
-                        })    
-                    }     
-                </div>
+            <div className="cardbox">
+                {
+                    items.map(item =>{
+                    return(
+                        <div className="card" key={item.id}>
+                        <Link to={`/series/${item.id}`}>
+                            <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
+                            
+                                <p className="movie-name">{item.name}</p>
+                            
+                            <p className="movie-date">{item.release_date}</p>
+                            <p className="rate">{item.vote_average}</p>
+                        </Link>
+                        </div>
+                    )
+                    })    
+                }     
+            </div>
         );
     }
 }

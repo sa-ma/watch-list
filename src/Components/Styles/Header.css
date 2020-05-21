@@ -32,7 +32,7 @@
     padding: 0 10px;
     list-style-type: none;
 }
-.popular, .free, .trending{
+ .free, .trending{
     overflow-y: hidden;
     overflow-x: scroll;
     padding: 10px;

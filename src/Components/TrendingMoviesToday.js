@@ -2,29 +2,14 @@ import React from 'react';
 import './Styles/Card.css';
 import UseData from './Hooks/UseData';
 import { Link } from 'react-router-dom';
-
-function TrendingMovies (){
-
+import LoadingContent from './Loading';
+import ErrorLoading from './ErrorLoading';
+function TrendingMoviesToday (){
     const {loading, items, error} = UseData("https://api.themoviedb.org/3/trending/movie/day?api_key=07a87afa9594ed4d43e740c14f0f5651");
-    
     console.log(items)
 
-    if(loading){
-        return (
-            <div className="free">
-                <h2>Trending Movies</h2>
-                <h3>Loading Content</h3>
-            </div>    
-        );
-    }
-    else if(error){
-        return (
-            <div className="free">
-                <h2>Trending Movies</h2>
-                <h3>Couldn't get Content</h3>
-            </div>    
-        );
-    }
+    if(loading){ return <LoadingContent />}
+    else if(error){return <ErrorLoading />}
     else {
         return(
                 <div className="cardbox">
@@ -46,4 +31,4 @@ function TrendingMovies (){
         );
     }
 }
-export default TrendingMovies;
+export default TrendingMoviesToday;
