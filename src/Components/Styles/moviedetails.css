@@ -2,6 +2,8 @@
     min-height: 100vh;
     background-position: center;
     background-size: cover;
+    /* filter: blur(8px);
+  -webkit-filter: blur(1px); */
     padding: 20px 10px;
     /* display: flex; */
     color: #fefefe;

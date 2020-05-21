@@ -37,3 +37,7 @@ h1{
 .btn-icon{
     font-size: 18px;
 }
+.wrap{
+    flex-wrap: wrap;
+    justify-content: center;
+}

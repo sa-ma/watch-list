@@ -1,8 +1,10 @@
 .cardbox{
     display: flex;
     line-height: 1;
+    min-height: 200px;
 }
 .card{
+    padding: 20px;
     margin: 10px 15px;
     transition: all .3s ease-in;
     cursor: pointer;
@@ -11,7 +13,6 @@
     transform: scale(1.05);
 }
 .rate{
-    text-align: center;
     color: #000;
     font-weight: 600;
 }
@@ -20,10 +21,52 @@
     border-radius: 20px;
 }
 .movie-name{
-    text-align: center;
+    /* text-align: center; */
     font-weight: 600;
 }
 .movie-date{
-    text-align: center;
+    /* text-align: center; */
     color: #777;
+}
+.category{
+    display: flex;
+}
+.sort{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+.sort li{
+    list-style-type: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: orange;
+}
+#series, #week,#series-week{
+    display: none;
+}
+.lazyload{
+    background-image: linear-gradient(to left bottom ,rgb(165, 162, 162),rgb(165, 162, 162) );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 10px;
+    border-radius: 20px;
+    animation: lazyLoad .9s infinite ease-in;
+}
+@keyframes lazyLoad {
+    0%{
+        opacity: 1;
+        background-image: linear-gradient(to right top ,rgb(124, 124, 124),rgba(165, 162, 162, 0.541) );
+    }
+    50%{
+        opacity: 1;
+        background-image: linear-gradient(to left top ,rgb(124, 124, 124),rgba(165, 162, 162, 0.541) );
+    }
+    100%{
+        opacity: 1;
+        background-image: linear-gradient(to left bottom ,rgb(165, 162, 162),rgb(165, 162, 162, 0.5) );
+    }
 }

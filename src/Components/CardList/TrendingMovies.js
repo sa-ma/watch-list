@@ -1,52 +1,31 @@
 import React from 'react';
 import '../Styles/Card.css';
-import UseData from '../Hooks/UseData';
-import { Link } from 'react-router-dom';
+import TrendingMoviesToday from '../TrendingMoviesToday';
+import TrendingMoviesWeek from '../TrendingMoviesWeek';
 
 function TrendingMovies (){
-
-    const {loading, items, error} = UseData("https://api.themoviedb.org/3/trending/movie/day?api_key=07a87afa9594ed4d43e740c14f0f5651");
-    
-    console.log(items)
-
-    if(loading){
-        return (
-            <div className="free">
-                <h2>Trending Movies</h2>
-                <h3>Loading Content</h3>
-            </div>    
-        );
-    }
-    else if(error){
-        return (
-            <div className="free">
-                <h2>Trending Movies</h2>
-                <h3>Couldn't get Content</h3>
-            </div>    
-        );
-    }
-    else {
+        const day = () =>{
+            document.getElementById("week").style.display = "none";
+            document.getElementById("day").style.display = "block";
+            console.log("clicked day")
+        }
+        const week = () =>{
+            document.getElementById("day").style.display = "none";
+            document.getElementById("week").style.display = "block";
+            console.log("clicked week")
+        }
         return(
             <div className="free">
-                <h2>Trending Movies</h2>
-                <div className="cardbox">
-                    {
-                        items.map(item =>{
-                        return(
-                            <div className="card" key={item.id}>
-                            <Link to={`/movie/${item.id}`}>
-                                <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
-                                <p className="movie-name">{item.title}</p>
-                                <p className="movie-date">{item.release_date}</p>
-                                <p className="rate">{item.vote_average}</p>
-                            </Link>
-                            </div>
-                        )
-                        })    
-                    }     
+                <div className="category">
+                    <h2>Trending Movies</h2>
+                    <ul className="sort">
+                        <li onClick={day}>Today</li>
+                        <li onClick={week}>Week</li>
+                    </ul>
                 </div>
+                <div id="day"><TrendingMoviesToday /></div>
+                <div id="week"><TrendingMoviesWeek /></div>
             </div>    
         );
-    }
 }
 export default TrendingMovies;
