@@ -4,7 +4,7 @@ import UseData from './Hooks/UseData';
 import { Link } from 'react-router-dom';
 import LoadingContent from './Loading';
 import ErrorLoading from './ErrorLoading';
-
+import {TiStarFullOutline} from 'react-icons/ti';
 function TrendingMoviesWeek (){
 
     const {loading, items, error} = UseData("https://api.themoviedb.org/3/trending/movie/week?api_key=07a87afa9594ed4d43e740c14f0f5651");
@@ -20,9 +20,9 @@ function TrendingMoviesWeek (){
                         <div className="card" key={item.id}>
                         <Link to={`/movie/${item.id}`}>
                             <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
-                            <p className="movie-name">{item.title}</p>
+                            <h3 className="movie-name">{item.title}</h3>
                             <p className="movie-date">{item.release_date}</p>
-                            <p className="rate">{item.vote_average}</p>
+                            <p className="rate"><TiStarFullOutline size={18} /> {item.vote_average}</p>
                         </Link>
                         </div>
                     )

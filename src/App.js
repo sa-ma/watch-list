@@ -5,14 +5,16 @@ import Header from './Components/Header';
 import Moviedetails from './Components/Moviedetails';
 import SearchDetails from './Components/SearchDetails';
 import Seriesdetails from './Components/Seriesdetails';
+import SearchBox from './Components/SearchBox';
 
 function App() {
-  return (
+  return(
     <Router>
       <div className="App">
           <Switch>
               <Route path="/" exact component={Header} />
               <Route path={"/movie/:name"}  component={Moviedetails}/>
+              <Route path={"/search"} exact component={SearchBox}/>
               <Route path={"/search/:name"}  component={SearchDetails}/>
               <Route path={"/series/:id"}  component={Seriesdetails}/>
           </Switch>

@@ -2,12 +2,15 @@
     display: flex;
     line-height: 1;
     min-height: 200px;
+    line-height: 0.85;
 }
 .card{
+    width: 150px;
     padding: 20px;
     margin: 10px 15px;
     transition: all .3s ease-in;
     cursor: pointer;
+    text-align: center;
 }
 .card:hover{
     transform: scale(1.05);
@@ -21,16 +24,21 @@
     border-radius: 20px;
 }
 .movie-name{
-    /* text-align: center; */
     font-weight: 600;
 }
 .movie-date{
-    /* text-align: center; */
     color: #777;
 }
 .category{
     display: flex;
+    padding: 5px 20px;
     
+}
+.bg-light-brown{
+    background: #F5F0EA;
+}
+.bg-brown{
+    background: #DCD7D1;
 }
 .sort{
     display: flex;
@@ -42,47 +50,47 @@
 .sort li{
     list-style-type: none;
     cursor: pointer;
-    padding: 10px 20px;
-    background: orange;
+    padding: 10px ;
+}
+.sort li:hover{
+    font-weight: 900;
+}
+.active{
+    font-weight: 900;
+    border-bottom: 1px solid #000;
 }
 #series, #week,#series-week{
     display: none;
 }
-.lazyload{
-    background-image: linear-gradient(to left bottom ,rgb(165, 162, 162),rgb(165, 162, 162) );
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 10px;
-    border-radius: 20px;
-    
+.trailer{
+    min-height: 400px;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 40px;
+    background: linear-gradient(to left bottom, rgba(0, 0, 0, 0.116),rgba(119, 119, 119, 0.123)),url(https://res.cloudinary.com/benjee/image/upload/v1590622462/three-assorted-movie-posters-3137890_1_kkoltb.jpg);
 }
-.lazy-load-container{
-    display: flex;
-    overflow-x: scroll;
-}
-.buffer{
-    animation: lazyLoad .9s infinite ease-in;
-}
-@keyframes lazyLoad {
-    0%{
-        background-image: linear-gradient(to top left ,rgba(141, 141, 141, 0.267),rgba(134, 134, 134, 0.288) );
-    }
-    30%{
-        background-image: linear-gradient(to left bottom ,rgba(177, 177, 177, 0.355),rgba(158, 158, 158, 0.355) );
-    }
-    60%{
-        background-image: linear-gradient(to bottom right,rgba(177, 177, 177, 0.355),rgba(158, 158, 158, 0.355) );
-    }
-    80%{
-        background-image: linear-gradient(to right top ,rgba(177, 177, 177, 0.355),rgba(158, 158, 158, 0.355) );
-    }
-    100%{
-        background-image: linear-gradient(to top left ,rgba(177, 177, 177, 0.355),rgba(158, 158, 158, 0.355) );
-    }
-   
+#play{
+    color: tan;
+    transform: translateY(-180px);
 }
 .scroll{
     overflow-x: scroll;
     overflow-y: hidden;
 }
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: #F5F0EA;
+
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(126, 126, 126);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(136, 136, 136);
+  }

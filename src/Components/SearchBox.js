@@ -12,7 +12,10 @@ function SearchBox (){
       setInput(e.target.value)
       console.log(e.target.value)
     }
-    let search = () => {history.push(`/search/${input}`)}
+    let search = () => {
+       console.log("clicked")
+        history.push(`/search/${input}`)
+    }
     const keypress = (e) => {
         if(e.keyCode === 13){
             history.push(`/search/${input}`);
@@ -23,7 +26,7 @@ function SearchBox (){
         <div className="searchbox">
             <h1>The Watch List</h1>
             <p className="header-sub">Find Millions of movies, TV shows to watch<br/> Explore now.</p>
-            <input placeholder="Search for a movie" onKeyDown={keypress} onKeyPress={searchinput} type="text"  id="searchbox"/>
+            <input placeholder="Search for a movie" onChange={searchinput} onKeyDown={keypress} type="text"  id="searchbox"/>
             <button onClick={search} className="btn" type="button" ><FaSearch className="btn-icon" /></button>
         </div>
     )

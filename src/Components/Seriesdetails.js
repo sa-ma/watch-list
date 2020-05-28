@@ -6,10 +6,13 @@ function Seriesdetails ({match}){
     let checkparams = match.params.id;
     const {error, loading, items} = FetchMovies(`https://api.themoviedb.org/3/tv/${checkparams}?api_key=07a87afa9594ed4d43e740c14f0f5651`)
 
+    console.log(items);
+
     let item = items;
         const style1 ={
             backgroundImage: `linear-gradient(to left bottom, rgba(40, 40, 40, 0.78), rgba(0, 0, 0, 0.93)),url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${item.backdrop_path})`,
         }
+        
             return (
                 <div className="overview-box" key={item.id} style={style1}>
                     <div className="thumbnail-box">
@@ -30,6 +33,5 @@ function Seriesdetails ({match}){
                     </div>
                 </div>
         );
-
     }    
 export default Seriesdetails;

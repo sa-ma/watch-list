@@ -5,6 +5,7 @@ import SearchBox from './SearchBox';
 import Popular from './CardList/Popular';
 import TrendingMovies from './CardList/TrendingMovies';
 import TrendingSeries from './CardList/TrendingSeries';
+import Trailers from './Trailers';
 
 
 function Header (){
@@ -13,6 +14,7 @@ function Header (){
                 <SearchBox />
                 <Popular />
                 <TrendingMovies />
+                <Trailers />
                 <TrendingSeries />
             </div>
         );

@@ -8,18 +8,26 @@ function Popular (){
     const movie = () =>{
         document.getElementById("series").style.display ="none"
         document.getElementById("movie").style.display = "block";
+        document.getElementById("tab2").classList.remove("active");
+        document.getElementById("tab1").classList.add("active");
     }
     const series = () =>{
         document.getElementById("movie").style.display = "none";
-        document.getElementById("series").style.display ="block"
+        document.getElementById("series").style.display ="block";
+        document.getElementById("tab1").classList.remove("active");
+        document.getElementById("tab2").classList.add("active");
+    }
+    const addclass = () => {
+        document.getElementById("tab1").classList.add("active");
+        document.getElementById("tab2").classList.remove("active");
     }
     return(
-        <div className="cardheader">
+        <div className="cardheader bg-light-brown">
             <div className="category">
                 <h2>Popular</h2>
                 <ul className="sort">
-                    <li onClick={movie}>Movie</li>
-                    <li onClick={series}>Series</li>
+                    <li id="tab1" className="active" onClick={movie}>Movie</li>
+                    <li id="tab2" onClick={series}>Series</li>
                 </ul>
             </div>
             <div id="movie" className="scroll"><PopularMovie/></div>
