@@ -20,7 +20,7 @@ function ErrorLoading (){
     }
    
        return(
-        <div style={somecss}>
+        <div className="scroll" style={somecss}>
             <div style={anothercss} className="buffer">
                 <MdBrokenImage size={60}/>
                 <h3 style={size}>Couldn't get <br/> content</h3>

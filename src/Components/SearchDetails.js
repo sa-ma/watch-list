@@ -9,7 +9,7 @@ import {TiStarFullOutline} from 'react-icons/ti';
 function SearchDetails ({match}){
     let url = match.params.name;
     const {items, loading, error} = UseData(`https://api.themoviedb.org/3/search/multi?api_key=07a87afa9594ed4d43e740c14f0f5651&language=en-US&query=${url}&include_adult=true`)
-    console.log(items)
+    
     if(loading){
         return(
             <div>
@@ -63,8 +63,8 @@ function SearchDetails ({match}){
                                 
                                     <p className="movie-name">{item.name}</p>
                                 
-                                <p className="movie-date">{item.release_date}</p>
-                                <p className="rate">{item.vote_average}</p>
+                                <p className="movie-date">{item.first_air_date}</p>
+                                <p className="rate"><TiStarFullOutline size={18} />{item.vote_average}</p>
                             </Link>
                             </div>
                     )

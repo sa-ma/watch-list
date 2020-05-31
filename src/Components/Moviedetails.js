@@ -1,27 +1,28 @@
 import React from 'react';
 import './Styles/moviedetails.css';
 import FetchMovies from './Hooks/FetchMovies';
+import { MdPlayCircleFilled,TiStarFullOutline, IoMdArrowRoundBack } from 'react-icons/all';
+import LoadingContent from './Loading';
+import ErrorLoading from './ErrorLoading';
+import { useHistory} from 'react-router-dom';
 
 function Moviedetails ({match}){
     let checkparams = match.params.name;
     const {loading, items, error} = FetchMovies(`https://api.themoviedb.org/3/movie/${checkparams}?api_key=07a87afa9594ed4d43e740c14f0f5651`);
     
+    console.log(match)
+    let history = useHistory();
+
     let item = items;
     console.log(items)
     if(loading){
         return (
-            <div className="popular">
-                <h2>Popular</h2>
-                <h3>Loading Content</h3>
-            </div>    
+           <LoadingContent />
         );
     }
     else if(error){
         return (
-            <div className="popular">
-                <h2>Popular</h2>
-                <h3>Couldn't get Content</h3>
-            </div>    
+            <ErrorLoading />
         );
     }
                         const style1 ={
@@ -29,17 +30,22 @@ function Moviedetails ({match}){
                         }
                     return (
                        <div className="overview-box" key={item.id} style={style1}>
+                            <div className="back">
+                               <IoMdArrowRoundBack onClick={() => history.goBack()} />
+                            </div>
                             <div className="thumbnail-box">
                                 <img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${item.poster_path}`} alt="" className="thumbnail-details" />
                             </div>
                             <div className="overview-details">
                                 <div className="overview-header">
-                                    <h1>{item.name}</h1>
-                                    <p>Release date: {item.release_date}</p>
-                                    <p>Rating: {item.vote_average}</p>
-                                    <a href={`https://www.youtube.com/results?search_query=${item.title} trailer`} target="_blank" rel="noopener noreferrer">Trailer</a>
+                                    <h1 className="details-title">{item.title}</h1>
+                                    <p className="details-date">Release date: {item.release_date}</p>
+                                    <p>Runtime: {item.runtime} min</p>
+                                    <p className="details-rating">Rating <TiStarFullOutline />: {item.vote_average} </p>
+                                    <a className="watch-trailer" href={`https://www.youtube.com/results?search_query=${item.title} trailer`} target="_blank" rel="noopener noreferrer"><MdPlayCircleFilled size={18} /> Watch Trailer</a>
                                 </div>
                                 <div className="overview-body">
+                                    <p className="mute-text">{item.tagline}</p>
                                     <h3>Overview</h3>
                                     <p>{item.overview}</p>
                                 </div>

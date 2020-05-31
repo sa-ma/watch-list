@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Moviedetails from './Components/Moviedetails';
 import SearchDetails from './Components/SearchDetails';
 import Seriesdetails from './Components/Seriesdetails';
 import SearchBox from './Components/SearchBox';
+import NotFound from './Components/NotFound';
 
 function App() {
   return(
@@ -17,6 +17,7 @@ function App() {
               <Route path={"/search"} exact component={SearchBox}/>
               <Route path={"/search/:name"}  component={SearchDetails}/>
               <Route path={"/series/:id"}  component={Seriesdetails}/>
+              <Route path="*" component={NotFound} />
           </Switch>
       </div>
     </Router>

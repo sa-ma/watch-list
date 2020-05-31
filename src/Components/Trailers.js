@@ -13,7 +13,7 @@ function Trailers (){
     else {
         return(
             <div className="scroll trailer">
-            <h2>Trailers</h2>
+                <h2 className="trailer-heading">Watch Trailers</h2>
                 <div className="cardbox">
                     {
                         items.map(item =>{
@@ -22,9 +22,8 @@ function Trailers (){
                                     <div className="card" key={item.id}>
                                     <a target="_Blank" rel="noopener noreferrer"  href={`https://www.youtube.com/results?search_query=${item.media_type === "tv" ? item.name : item.title}`}>
                                         <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
-                                        <h3 className="movie-name">{item.media_type === "tv" ? item.name : item.title}</h3>
+                                        <FaPlay size={25} id="play"/>
                                     </a>
-                                    <FaPlay size={25} id="play"/>
                                     </div>
                                 )
                             }else return [];
