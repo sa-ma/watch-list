@@ -38,8 +38,8 @@
     .overview-box{
         flex-wrap: wrap;
     }
-    .overview-details{
-        /* text-align: center; */
+    .thumbnail-details{
+        width: 70%;
     }
 }
 @media(min-width: 768px){
