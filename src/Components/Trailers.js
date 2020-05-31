@@ -20,7 +20,7 @@ function Trailers (){
                             if(item.media_type === "tv" || item.media_type === "movie"){
                                 return(
                                     <div className="card" key={item.id}>
-                                    <a target="_Blank" rel="noopener noreferrer"  href={`https://www.youtube.com/results?search_query=${item.media_type === "tv" ? item.name : item.title}`}>
+                                    <a target="_Blank" rel="noopener noreferrer"  href={`https://www.youtube.com/results?search_query=${item.media_type === "tv" ? item.name : item.title} trailer`}>
                                         <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} alt="" className="thumbnail" />
                                         <FaPlay size={25} id="play"/>
                                     </a>

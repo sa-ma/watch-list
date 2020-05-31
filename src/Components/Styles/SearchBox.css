@@ -31,7 +31,7 @@ h1{
     background: #fefefe;
     border: none;
     outline: none;
-    transform: translate(-40px, 3px);
+    transform: translate(-50px, 3px);
     cursor: pointer;
 }
 .btn-icon{
